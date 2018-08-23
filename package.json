@@ -1,0 +1,55 @@
+{
+  "name": "fedpiergiacomi-website",
+  "description": "Federica PIergiacomi website",
+  "version": "1.0.0",
+  "author": "Flavio Primo",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "bulma": "^0.7.1",
+    "bulma-extensions": "^2.2.1",
+    "gatsby": "next",
+    "gatsby-image": "next",
+    "gatsby-plugin-feed": "next",
+    "gatsby-plugin-manifest": "next",
+    "gatsby-plugin-netlify": "next",
+    "gatsby-plugin-nprogress": "next",
+    "gatsby-plugin-offline": "next",
+    "gatsby-plugin-react-helmet": "next",
+    "gatsby-plugin-sharp": "next",
+    "gatsby-remark-copy-linked-files": "next",
+    "gatsby-remark-images": "next",
+    "gatsby-remark-responsive-iframe": "next",
+    "gatsby-remark-smartypants": "next",
+    "gatsby-source-filesystem": "next",
+    "gatsby-transformer-remark": "next",
+    "gatsby-transformer-sharp": "next",
+    "lodash": "^4.17.10",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2",
+    "react-helmet": "^5.2.0"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write 'src/**/*.js'",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public ."
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.2.6",
+    "eslint": "^5.4.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-react": "^7.11.1",
+    "gatsby-plugin-eslint": "^2.0.1",
+    "prettier": "^1.14.2",
+    "react-social-icons": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flaprimo/fedpiergiacomi-website"
+  }
+}
