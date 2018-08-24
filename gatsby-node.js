@@ -34,11 +34,10 @@ exports.createPages = ({ graphql, actions }) => {
       graphql(
         `
         {
-          blog: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/blog/"}},
+          portfolio: allMarkdownRemark(
+            filter: {fileAbsolutePath: {regex: "/portfolio/"}},
             sort: {fields: [frontmatter___date], order: DESC})
           {
-            totalCount
             edges {
               node {
                 fields {
@@ -50,18 +49,16 @@ exports.createPages = ({ graphql, actions }) => {
               }
             }
           }
-          gallery: allMarkdownRemark(
-            filter: {fileAbsolutePath: {regex: "/gallery/"}},
-            sort: {fields: [frontmatter___date], order: DESC})
-          {
-            totalCount
+          allFile(filter: {
+            sourceInstanceName: {eq: "portfolio"},
+            internal: {mediaType: {eq: "image/jpeg"}}
+          }) {
             edges {
               node {
-                fields {
-                  slug
-                }
-                frontmatter {
-                  date(formatString: "DD MMMM YYYY")
+                childImageSharp {
+                  resize(width: 1000, height: 1000, quality: 85) {
+                    src
+                  }
                 }
               }
             }
@@ -74,14 +71,11 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        const blogTemplate = path.resolve("./src/templates/blogElementTemplate.js");
-        const galleryTemplate = path.resolve("./src/templates/galleryElementTemplate.js");
+        const portfolioTemplate = path.resolve("./src/templates/portfolioElementTemplate.js");
 
-        const blogElements = result.data.blog.edges;
-        const galleryElements = result.data.gallery.edges;
+        const portfolioElements = result.data.portfolio.edges;
 
-        createCustomPage(blogElements, "/blog", blogTemplate);
-        createCustomPage(galleryElements, "/gallery", galleryTemplate);
+        createCustomPage(portfolioElements, "/portfolio", portfolioTemplate);
       })
     );
   });

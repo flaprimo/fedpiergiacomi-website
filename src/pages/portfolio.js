@@ -1,19 +1,20 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
 
 import Layout from "../components/Layout";
-import Header from "../components/Header";
 import PropTypes from "prop-types";
+import Header from "../components/Header";
 
-class BlogPage extends React.Component {
+class PortfolioPage extends React.Component {
   render() {
     const siteTitle = this.props.data.site.siteMetadata.title;
-    const contentTitle = "Blog";
+    const contentTitle = "Portfolio";
     const blogElements = this.props.data.allMarkdownRemark.edges;
 
     return (
       <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
-        <Header title={contentTitle} subtitle="Welcome to the blog"/>
+        <Header title={contentTitle} subtitle="Welcome to the portfolio"/>
 
         <div className="container section">
           <div className="columns is-multiline is-centered">
@@ -23,6 +24,7 @@ class BlogPage extends React.Component {
               const date = node.frontmatter.date;
               const category = node.frontmatter.category;
               const excerpt = node.excerpt;
+              const cover = node.frontmatter.cover.childImageSharp.fluid;
 
               return (
                 <div key={slug} className="column is-half">
@@ -32,15 +34,18 @@ class BlogPage extends React.Component {
                          minHeight: "100%",
                          flexDirection: "column"
                        }}>
+                    <div className="card-image">
+                      <Img className="image" fluid={cover}/>
+                    </div>
 
-                    <div className="card-content" style={{ flex: "1" }}>
+                    <div className="card-content" style={{flex: "1"}}>
                       <h3 className="is-size-4">
-                        <Link to={"/blog" + slug}>
+                        <Link to={"/portfolio" + slug}>
                           {title}
                         </Link>
                       </h3>
                       <br/>
-                      <div className="content">
+                      <div className="content" >
                         <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
                       </div>
                     </div>
@@ -60,17 +65,17 @@ class BlogPage extends React.Component {
   }
 }
 
-export default BlogPage;
+export default PortfolioPage;
 
 export const pageQuery = graphql`
-  query blogPageQuery {
+  query portfolioPageQuery {
     site {
       siteMetadata {
         title
       }
     }
     allMarkdownRemark(
-      filter: {fileAbsolutePath: {regex: "/blog/"}},
+      filter: {fileAbsolutePath: {regex: "/portfolio/"}},
       sort: { fields: [frontmatter___date], order: DESC })
     {
       edges {
@@ -82,8 +87,13 @@ export const pageQuery = graphql`
           frontmatter {
             title
             date(formatString: "DD MMMM, YYYY")
-            category
-            tags
+            cover {
+              childImageSharp {
+                fluid(maxWidth: 900, quality: 85, traceSVG: { color: "#2B2B2F" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
           }
         }
       }
@@ -91,7 +101,7 @@ export const pageQuery = graphql`
   }
 `;
 
-BlogPage.propTypes = {
+PortfolioPage.propTypes = {
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

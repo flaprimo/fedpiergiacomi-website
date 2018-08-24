@@ -4,12 +4,8 @@ module.exports = [
     url: "/"
   },
   {
-    title: "Blog",
-    url: "/blog"
-  },
-  {
-    title: "Gallery",
-    url: "/gallery"
+    title: "Portfolio",
+    url: "/portfolio"
   },
   {
     title: "About",

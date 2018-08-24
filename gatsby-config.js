@@ -1,25 +1,18 @@
 module.exports = {
   siteMetadata: {
-    title: "Flavio Primo",
+    title: "Federica Piergiacomi",
     author: "Flavio Primo",
-    description: "Just another dev blog",
-    siteUrl: "https://flaprimo.github.io"
+    description: "The most amazing set and light designer <3",
+    siteUrl: "https://fedpiergiacomi.netlify.com"
   },
-  pathPrefix: "/flaprimo-website",
+  pathPrefix: "/",
   plugins: [
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: "blog"
-      }
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/content/gallery`,
-        name: "gallery"
+        path: `${__dirname}/content/portfolio`,
+        name: "portfolio"
       }
     },
     {
@@ -56,9 +49,9 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        name: "Flavio Primo",
-        short_name: "Flavio Primo",
-        description: "Just another dev blog",
+        name: "Federica Piergiacomi",
+        short_name: "Federica Piergiacomi",
+        description: "The most amazing set and light designer <3",
         start_url: "/",
         background_color: "red",
         theme_color: "red",

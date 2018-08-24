@@ -16,10 +16,24 @@ class Layout extends React.Component {
           <title>{title}</title>
           <html className="has-navbar-fixed-top"/>
         </Helmet>
-
         <Nav/>
-        {children}
-        <Footer/>
+        <main style={{
+          "position": "relative",
+          "z-index": "1",
+          "margin-bottom": "400px",
+          "backgroundColor": "white"
+        }}>
+          {children}
+        </main>
+        <footer style={{
+          "position": "fixed",
+          "left": 0,
+          "right": 0,
+          "bottom": 0,
+          "height": "400px"
+        }}>
+          <Footer/>
+        </footer>
       </div>
     );
   }

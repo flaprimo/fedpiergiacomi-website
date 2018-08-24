@@ -22,12 +22,14 @@ class IndexPage extends React.Component {
                "backgroundSize": "cover"
              }}>
           <div className="hero-body">
+          </div>
+          <div className="hero-footer" style={{"paddingBottom": "3rem"}}>
             <div className="container has-text-centered">
-              <h1 className="title has-text-primary">
-                Hi everyone!
+              <h1 className="title has-text-white" style={{"textShadow": "1px 1px 1px #000"}}>
+                Hi, I&#39;m Federica Piergiacomi
               </h1>
-              <h2 className="subtitle has-text-primary">
-                Welcome to my new website
+              <h2 className="subtitle has-text-white" style={{"textShadow": "1px 1px 1px #000"}}>
+                The most amazing set and light designer &lt;3
               </h2>
             </div>
           </div>

@@ -24,7 +24,7 @@ class Nav extends React.Component {
             <Link className="navbar-item" to={"/"}>
               <img style={{ "height": "28px" }} src={logo}/>
               &emsp;
-              <b>Flavio Primo</b>
+              <b>Federica Piergiacomi</b>
             </Link>
             <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
                   onClick={this.toggleBurgerOnClick}>

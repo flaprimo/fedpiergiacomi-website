@@ -1,20 +1,27 @@
 import React from "react";
-import Link from "gatsby-link";
 import SocialButton from "./SocialButtons";
+import "bulma-extensions/bulma-divider/dist/css/bulma-divider.min.css";
 
 const Footer = () => (
-  <footer className="footer">
-    <div className="container level">
+  <div className="footer">
+    <div className="container">
+      <div className="container has-text-centered">
+        <h2 className="subtitle">Who I am.</h2>
 
-      <div className="level-left">
-      <SocialButton className="column is-half" />
+        <p>I am a set and light designer.</p>
+        <p>Say hello to <a href="mailto:federicapiergiacomi@gmail.com?Subject=Hello">Federica Piergiacomi</a></p>
+      </div>
+      <div className="is-divider"/>
+
+      <div className="container has-text-centered">
+        <SocialButton/>
+        <br/>
+        <p>© Copyright {(new Date()).getFullYear()}</p>
+        <p>Design by <a href="https://www.flavioprimo.xyz" target="_blank" rel="noopener noreferrer">Flavio Primo</a> & Federica Piergiacomi</p>
       </div>
 
-      <Link className="level-right" to="/cookie-policy">
-        Cookie Policy
-      </Link>
     </div>
-  </footer>
+  </div>
 );
 
 export default Footer;
