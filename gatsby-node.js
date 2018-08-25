@@ -56,7 +56,7 @@ exports.createPages = ({ graphql, actions }) => {
             edges {
               node {
                 childImageSharp {
-                  resize(width: 1000, height: 1000, quality: 85) {
+                  resize(width: 1000, quality: 85) {
                     src
                   }
                 }

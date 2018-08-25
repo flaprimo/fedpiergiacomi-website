@@ -3,7 +3,38 @@ module.exports = {
     title: "Federica Piergiacomi",
     author: "Flavio Primo",
     description: "The most amazing set and light designer <3",
-    siteUrl: "https://fedpiergiacomi.netlify.com"
+    siteUrl: "https://fedpiergiacomi.netlify.com",
+    nav: [
+      {
+        title: "Home",
+        url: "/"
+      },
+      {
+        title: "Portfolio",
+        url: "/portfolio"
+      },
+      {
+        title: "About",
+        url: "/about"
+      }
+    ],
+    social: [
+      {
+        title: "Facebook",
+        user: "federica.piergiacomi",
+        baseurl: "https://www.facebook.com/"
+      },
+      {
+        title: "Instagram",
+        user: "fedebrica",
+        baseurl: "https://www.instagram.com/"
+      },
+      {
+        title: "Pinterest",
+        user: "federicapiergia",
+        baseurl: "https://www.pinterest.com/"
+      }
+    ]
   },
   pathPrefix: "/",
   plugins: [
@@ -63,6 +94,7 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-plugin-nprogress`,
     `gatsby-plugin-feed`,
+    `gatsby-plugin-purgecss`,
     `gatsby-plugin-offline`,
     "gatsby-plugin-netlify"
   ]
