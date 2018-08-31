@@ -1,12 +1,12 @@
 {
   "name": "fedpiergiacomi-website",
-  "description": "Federica PIergiacomi website",
+  "description": "Federica Piergiacomi website",
   "version": "1.0.0",
   "author": "Flavio Primo",
   "dependencies": {
     "bluebird": "^3.5.1",
     "bulma": "^0.7.1",
-    "bulma-extensions": "^2.2.1",
+    "bulma-extensions": "^2.2.2",
     "gatsby": "next",
     "gatsby-image": "next",
     "gatsby-plugin-feed": "next",
