@@ -85,7 +85,7 @@ module.exports = {
         description: "The most amazing set and light designer <3",
         start_url: "/",
         background_color: "red",
-        theme_color: "red",
+        theme_color: "black",
         display: "standalone",
         icon: `${__dirname}/static/logo.svg`
       }

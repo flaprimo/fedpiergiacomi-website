@@ -10,8 +10,7 @@ const StyledLink = styled(Link)`
     color: white;
   }
   &.navbar-item.is-active.home {
-    color: white;
-    background-color: #0a0a0a;
+    color: rgb(74, 74, 74);
     &:hover {
       color: #3273dc;
       background-color: white;
@@ -47,7 +46,7 @@ class Nav extends React.Component {
     );
 
     return (
-      <nav className={"navbar is-fixed-top" + (this.state.home ? "" : " is-primary")}
+      <nav className={"navbar is-fixed-top"}
            style={{ background: this.state.home ? "transparent" : "" }}>
         <div className="container">
           <div className="navbar-brand">
