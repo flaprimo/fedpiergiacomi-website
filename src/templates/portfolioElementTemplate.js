@@ -26,7 +26,7 @@ class PortfolioElementTemplate extends React.Component {
     const html = portfolioElement.html;
 
     return (
-      <Layout contentTitle={title} siteTitle={siteTitle}>
+      <Layout contentTitle={title} siteTitle={siteTitle} location={this.props.location}>
         <header className="hero is-dark">
           <div className="hero-body">
             <div className="container">
@@ -110,6 +110,7 @@ export const pageQuery = graphql`
 `;
 
 PortfolioElementTemplate.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

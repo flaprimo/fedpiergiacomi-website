@@ -13,7 +13,7 @@ class PortfolioPage extends React.Component {
     const blogElements = this.props.data.allMarkdownRemark.edges;
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <Header title={contentTitle} subtitle="Welcome to the portfolio"/>
 
         <div className="container section">
@@ -102,6 +102,7 @@ export const pageQuery = graphql`
 `;
 
 PortfolioPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

@@ -8,7 +8,7 @@ import "bulma/css/bulma.css";
 
 class Layout extends React.Component {
   render() {
-    const { siteTitle, contentTitle, children } = this.props;
+    const { siteTitle, contentTitle, location, children } = this.props;
     const title = `${contentTitle} | ${siteTitle}`;
     return (
       <div>
@@ -16,21 +16,21 @@ class Layout extends React.Component {
           <title>{title}</title>
           <html className="has-navbar-fixed-top"/>
         </Helmet>
-        <Nav/>
+        <Nav location={location}/>
         <main style={{
-          "position": "relative",
-          "z-index": "1",
-          "margin-bottom": "400px",
-          "backgroundColor": "white"
+          position: "relative",
+          zIndex: "1",
+          marginBottom: "400px",
+          backgroundColor: "white"
         }}>
           {children}
         </main>
         <footer style={{
-          "position": "fixed",
-          "left": 0,
-          "right": 0,
-          "bottom": 0,
-          "height": "400px"
+          position: "fixed",
+          left: 0,
+          right: 0,
+          bottom: 0,
+          height: "400px"
         }}>
           <Footer/>
         </footer>
@@ -44,6 +44,7 @@ export default Layout;
 Layout.propTypes = {
   siteTitle: PropTypes.string.isRequired,
   contentTitle: PropTypes.string.isRequired,
+  location: PropTypes.object.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.object

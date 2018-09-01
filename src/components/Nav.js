@@ -3,37 +3,67 @@ import Link from "gatsby-link";
 import { withPrefix } from "gatsby-link";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import styled from "styled-components";
+
+const StyledLink = styled(Link)`
+  &.home {
+    color: white;
+  }
+  &.navbar-item.is-active.home {
+    color: white;
+    background-color: #0a0a0a;
+    &:hover {
+      color: #3273dc;
+      background-color: white;
+    }
+  }
+`;
+
+const Span = styled.span`
+  &.home {
+    color: white;
+  }
+`;
 
 class Nav extends React.Component {
   constructor() {
     super();
-    this.state = { visible: false };
+    this.state = {
+      home: true,
+      visible: false
+    };
   }
 
   render() {
     const logo = withPrefix("/logo.svg");
     const title = this.props.data.site.siteMetadata.title;
     const nav = this.props.data.site.siteMetadata.nav.map((navitem, i) =>
-      <Link key={i} className="navbar-item" to={navitem.url}>
+      <StyledLink key={i} className={"navbar-item" +
+      (this.state.home && !this.state.visible ? " home" : "") +
+      ("/" + this.props.location.pathname.split('/')[1] === navitem.url ? " is-active" : "")}
+                  to={navitem.url}>
         {navitem.title}
-      </Link>
+      </StyledLink>
     );
 
     return (
-      <nav className="navbar is-primary is-fixed-top">
+      <nav className={"navbar is-fixed-top" + (this.state.home ? "" : " is-primary")}
+           style={{ background: this.state.home ? "transparent" : "" }}>
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" to={"/"}>
               <img style={{ "height": "28px" }} src={logo}/>
               &emsp;
-              <b>{ title }</b>
+              <b style={{ color: this.state.home ? "white" : "" }}>{title}</b>
             </Link>
-            <span className={"navbar-burger burger" + (this.state.visible ? " is-active" : "")}
+            <Span className={"navbar-burger burger" +
+            (this.state.visible ? " is-active" : "") +
+            (this.state.home ? " home" : "")}
                   onClick={this.toggleBurgerOnClick}>
-            <span/>
-            <span/>
-            <span/>
-          </span>
+              <span/>
+              <span/>
+              <span/>
+            </Span>
           </div>
           <div className={"navbar-menu" + (this.state.visible ? " is-active" : "")}>
             <div className="navbar-end">
@@ -47,11 +77,24 @@ class Nav extends React.Component {
 
   componentDidMount() {
     window.addEventListener("resize", this.toggleBurgerOnResize);
+    this.checkHome();
   }
 
   componentWillUnmount() {
     window.removeEventListener("resize", this.toggleBurgerOnResize);
   }
+
+  checkHome = () => {
+    if (this.props.location.pathname === "/") {
+      this.setState({
+        home: true
+      });
+    } else {
+      this.setState({
+        home: false
+      });
+    }
+  };
 
   toggleBurgerOnClick = () => {
     this.setState({
@@ -89,6 +132,7 @@ export default props => (
 )
 
 Nav.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({

@@ -12,23 +12,23 @@ class IndexPage extends React.Component {
     const bg = withPrefix("/index-bg.jpg");
 
     return (
-      <Layout siteTitle={siteTitle} contentTitle={contentTitle}>
+      <Layout siteTitle={siteTitle} contentTitle={contentTitle} location={this.props.location}>
         <div className="hero is-primary is-medium is-fullheight"
              style={{
-               "marginTop": "-52px",
-               "paddingTop": "52px",
-               "backgroundImage": "url(" + bg + ")",
-               "backgroundPosition": "center center",
-               "backgroundSize": "cover"
+               marginTop: "-52px",
+               paddingTop: "52px",
+               backgroundImage: "url(" + bg + ")",
+               backgroundPosition: "center center",
+               backgroundSize: "cover"
              }}>
           <div className="hero-body">
           </div>
-          <div className="hero-footer" style={{"paddingBottom": "3rem"}}>
+          <div className="hero-footer" style={{paddingBottom: "3rem"}}>
             <div className="container has-text-centered">
-              <h1 className="title has-text-white" style={{"textShadow": "1px 1px 1px #000"}}>
+              <h1 className="title has-text-white" style={{textShadow: "1px 1px 1px #000"}}>
                 Hi, I&#39;m Federica Piergiacomi
               </h1>
-              <h2 className="subtitle has-text-white" style={{"textShadow": "1px 1px 1px #000"}}>
+              <h2 className="subtitle has-text-white" style={{textShadow: "1px 1px 1px #000"}}>
                 The most amazing set and light designer &lt;3
               </h2>
             </div>
@@ -53,6 +53,7 @@ export const pageQuery = graphql`
 `;
 
 IndexPage.propTypes = {
+  location: PropTypes.object.isRequired,
   data: PropTypes.shape({
     site: PropTypes.shape({
       siteMetadata: PropTypes.shape({
