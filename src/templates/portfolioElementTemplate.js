@@ -18,7 +18,7 @@ class PortfolioElementTemplate extends React.Component {
     const type = portfolioElement.frontmatter.type;
     const production = portfolioElement.frontmatter.production;
     const cast = portfolioElement.frontmatter.cast.map((member, i) =>
-      <li key={i}>
+      <li key={i} style={{marginLeft: "5px"}}>
         {member}
       </li>
     );
@@ -37,15 +37,15 @@ class PortfolioElementTemplate extends React.Component {
                   <h2 className="subtitle"><b>Roles:</b> {roles}</h2>
                 </div>
                 <div className="column">
-                  <p><b>Production:</b> {production}</p>
-                  <p><b>Director:</b> {director}</p>
-                  <p><b>Cast:</b></p>
+                  <p><strong>Production:</strong> {production}</p>
+                  <p><strong>Director:</strong> {director}</p>
+                  <p><strong>Cast:</strong></p>
                   <ul>{cast}</ul>
                 </div>
                 <div className="column">
-                  <p><b>Type:</b> {type}</p>
-                  <p><b>Location:</b> {location}</p>
-                  <p><b>Date:</b> {date}</p>
+                  <p><strong>Type:</strong> {type}</p>
+                  <p><strong>Location:</strong> {location}</p>
+                  <p><strong>Date:</strong> {date}</p>
                 </div>
               </div>
             </div>

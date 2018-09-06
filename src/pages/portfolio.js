@@ -5,6 +5,39 @@ import Img from "gatsby-image";
 import Layout from "../components/Layout";
 import PropTypes from "prop-types";
 import Header from "../components/Header";
+import styled from "styled-components";
+
+const Card = styled.div`
+  &.card {
+    box-shadow: none;
+  }
+
+  .over-image {
+    margin: -10px;
+    position: absolute;
+  }
+  .card-content {
+    opacity: 0;
+    color: white;
+  }
+  .card-content, .over-image {
+    transition-timing-function: ease-out;
+    transition: 0.2s;
+  }
+  
+  &:hover {
+    .over-image {
+      filter: blur(12px) brightness(0.8);
+    }
+    .card-content {
+      opacity: 1;
+    }
+    .card-content, .over-image {
+      transition-timing-function: ease-in;
+      transition: 0.25s;
+    }
+  }
+`;
 
 class PortfolioPage extends React.Component {
   render() {
@@ -19,42 +52,49 @@ class PortfolioPage extends React.Component {
         <div className="container section">
           <div className="columns is-multiline is-centered">
             {blogElements.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug;
               const slug = node.fields.slug;
-              const date = node.frontmatter.date;
-              const category = node.frontmatter.category;
-              const excerpt = node.excerpt;
+              const title = node.frontmatter.title || node.fields.slug;
               const cover = node.frontmatter.cover.childImageSharp.fluid;
+              const type = node.frontmatter.type;
+              const director = node.frontmatter.director;
+              const production = node.frontmatter.production;
+              const roles = node.frontmatter.roles.map((role, i) =>
+                <span key={i} className="tag is-info">
+                  {role}
+                </span>
+              );
 
               return (
-                <div key={slug} className="column is-half">
-                  <div className="card"
-                       style={{
-                         display: "flex",
-                         minHeight: "100%",
-                         flexDirection: "column"
-                       }}>
-                    <div className="card-image">
-                      <Img className="image" fluid={cover}/>
-                    </div>
-
-                    <div className="card-content" style={{flex: "1"}}>
-                      <h3 className="is-size-4">
-                        <Link to={"/portfolio" + slug}>
-                          {title}
-                        </Link>
-                      </h3>
-                      <br/>
-                      <div className="content" >
-                        <p dangerouslySetInnerHTML={{ __html: excerpt }}/>
+                <div key={slug} className="column is-one-quarter-desktop is-half-tablet">
+                  <Card className="card">
+                    <Link to={"/portfolio" + slug}>
+                      <div className="card-image" style={{overflow: "hidden"}}>
+                        <Img className="image" fluid={cover}/>
+                        <Img className="over-image image is-overlay" style={{position:"absolute"}} fluid={cover}/>
+                        <div className="card-content is-overlay">
+                          <div className="card" style={{backgroundColor: "transparent", boxShadow: "none"}}>
+                            <div className="card-header" style={{boxShadow: "none"}}>
+                              <p className="card-header-title tags">
+                                {roles}
+                              </p>
+                            </div>
+                            <div className="card-content">
+                              <div className="content">
+                                <p><strong>type:</strong> {type}</p>
+                                <p><strong>director:</strong> {director}</p>
+                                <p><strong>production:</strong> {production}</p>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                    </div>
-
-                    <footer className="card-footer">
-                      <div className="card-footer-item">{date}</div>
-                      <div className="card-footer-item">{category}</div>
-                    </footer>
-                  </div>
+                      <footer className="card-footer" style={{border: 0}}>
+                        <span className="card-footer-item">
+                          {title}
+                        </span>
+                      </footer>
+                    </Link>
+                  </Card>
                 </div>
               );
             })}
@@ -80,16 +120,18 @@ export const pageQuery = graphql`
     {
       edges {
         node {
-          excerpt
           fields {
             slug
           }
           frontmatter {
             title
-            date(formatString: "DD MMMM, YYYY")
+            roles
+            type
+            director
+            production
             cover {
               childImageSharp {
-                fluid(maxWidth: 900, quality: 85, traceSVG: { color: "#2B2B2F" }) {
+                fluid(maxHeight: 300, maxWidth: 300, quality: 85, traceSVG: { color: "#2B2B2F" }) {
                   ...GatsbyImageSharpFluid_withWebp_tracedSVG
                 }
               }

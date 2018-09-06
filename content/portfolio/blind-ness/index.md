@@ -4,7 +4,7 @@ date: "2008-12-01"
 cover: "./1.jpg"
 location: Cankarjev dom (Ljubljana, Slovenia)
 director: Ivan Talijancic
-roles: ["Lighting"]
+roles: ["Lighting", "Set"]
 type: performance
 production: "WaxFactory, Integrali"
 cast: ["Set by Minimart",
