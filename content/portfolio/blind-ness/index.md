@@ -1,5 +1,5 @@
 ---
-title: Blind.ness
+title: Test
 date: "2008-12-01"
 cover: "./1.jpg"
 location: Cankarjev dom (Ljubljana, Slovenia)
