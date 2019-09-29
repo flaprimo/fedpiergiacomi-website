@@ -91,11 +91,7 @@ export default props => (
       query NavQuery {
         site {
           siteMetadata {
-            title,
-            nav {
-              title,
-              url
-            }
+            title
           }
         }
       }

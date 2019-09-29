@@ -4,12 +4,6 @@ module.exports = {
     author: "Flavio Primo",
     description: "The most amazing set and light designer <3",
     siteUrl: "https://fedpiergiacomi.netlify.com",
-    nav: [
-      {
-        title: "Home",
-        url: "/"
-      }
-    ],
     social: [
       {
         title: "Facebook",
