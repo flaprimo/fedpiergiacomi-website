@@ -1,7 +1,7 @@
 ---
 title: Uter’in’aria
 date: "2018"
-cover: "./1.jpg"
+cover: "./1.jpeg"
 location: Teatro Libero, Milano, Italia
 director: Paolo Panizza
 roles: ["Set Designer", "Light Designer"]
