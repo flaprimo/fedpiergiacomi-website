@@ -1,15 +1,12 @@
 ---
 title: Anfitrione
-date: "2017"
+date: "2013"
 cover: "./1.jpg"
-location: Teatro Coccia Novara Italia
-director: Marco Iacomelli
-roles: ["Set Assistant"]
-type: musical
-production: "Co-Production STM, Fondazione Teatro Coccia, Reverse Agency and CRT"
-cast: ["Set by Gabriele Moreschi",
-"Light by Valerio Tiberi",
-"Sound by Donato Pepe",
-"Costumes by Maria Carla Ricotti",
-"Choreography by Michael Cothren Pena"]
+location: Università Cattolica del Sacro Cuore, Milano, Italia
+director: Christian Poggioni
+roles: ["Set Designer", "Costume Designer"]
+type: drama
+production: "Università Cattolica del Sacro Cuore"
+cast: ["Set by Federica Piergiacomi, Noemi Brolatti, Simone Conforte, Clara Chiesa, Alizarina Silva",
+"Music by Samuele Francesco Mazza"]
 ---

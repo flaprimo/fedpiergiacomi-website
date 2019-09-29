@@ -2,7 +2,7 @@
 title: American Idiot
 date: "2017"
 cover: "./1.jpeg"
-location: Teatro Coccia Novara Italia
+location: Teatro Coccia, Novara, Italia
 director: Marco Iacomelli
 roles: ["Set Assistant"]
 type: musical
