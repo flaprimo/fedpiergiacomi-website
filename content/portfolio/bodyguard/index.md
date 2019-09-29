@@ -4,7 +4,7 @@ date: "2017"
 cover: "./1.jpg"
 location: Teatro Nazionale, Milano, Italia
 director: Federico Bellone
-roles: ["Set assistant"]
+roles: ["Set Assistant"]
 type: Musical
 production: "Wizard Production"
 cast: ["Music direction by Simone Giusti",
