@@ -37,15 +37,15 @@ class PortfolioElementTemplate extends React.Component {
                   <h2 className="subtitle"><b>Roles:</b> {roles}</h2>
                 </div>
                 <div className="column">
-                  <p><strong>Production:</strong> {production}</p>
-                  <p><strong>Director:</strong> {director}</p>
-                  <p><strong>Cast:</strong></p>
+                  <p><strong className="has-text-white">Production:</strong> {production}</p>
+                  <p><strong className="has-text-white">Director:</strong> {director}</p>
+                  <p><strong className="has-text-white">Cast:</strong></p>
                   <ul>{cast}</ul>
                 </div>
                 <div className="column">
-                  <p><strong>Type:</strong> {type}</p>
-                  <p><strong>Location:</strong> {location}</p>
-                  <p><strong>Date:</strong> {date}</p>
+                  <p><strong className="has-text-white">Type:</strong> {type}</p>
+                  <p><strong className="has-text-white">Location:</strong> {location}</p>
+                  <p><strong className="has-text-white">Date:</strong> {date}</p>
                 </div>
               </div>
             </div>
