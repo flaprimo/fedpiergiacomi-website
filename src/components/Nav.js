@@ -5,19 +5,6 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-const StyledLink = styled(Link)`
-  &.home {
-    color: white;
-  }
-  &.navbar-item.is-active.home {
-    color: rgb(74, 74, 74);
-    &:hover {
-      color: #3273dc;
-      background-color: white;
-    }
-  }
-`;
-
 const Span = styled.span`
   &.home {
     color: white;
@@ -36,14 +23,6 @@ class Nav extends React.Component {
   render() {
     const logo = withPrefix("/logo.svg");
     const title = this.props.data.site.siteMetadata.title;
-    const nav = this.props.data.site.siteMetadata.nav.map((navitem, i) =>
-      <StyledLink key={i} className={"navbar-item" +
-      (this.state.home && !this.state.visible ? " home" : "") +
-      ("/" + this.props.location.pathname.split('/')[1] === navitem.url ? " is-active" : "")}
-                  to={navitem.url}>
-        {navitem.title}
-      </StyledLink>
-    );
 
     return (
       <nav className={"navbar is-fixed-top"}
@@ -63,11 +42,6 @@ class Nav extends React.Component {
               <span/>
               <span/>
             </Span>
-          </div>
-          <div className={"navbar-menu" + (this.state.visible ? " is-active" : "")}>
-            <div className="navbar-end">
-              {nav}
-            </div>
           </div>
         </div>
       </nav>

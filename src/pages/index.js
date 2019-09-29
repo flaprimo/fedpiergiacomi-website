@@ -29,7 +29,7 @@ class IndexPage extends React.Component {
                 Hi, I&#39;m Federica Piergiacomi
               </h1>
               <h2 className="subtitle has-text-white" style={{textShadow: "1px 1px 1px #000"}}>
-                The most amazing set and light designer &lt;3
+                Maintenance mode, we are working for you!
               </h2>
             </div>
           </div>

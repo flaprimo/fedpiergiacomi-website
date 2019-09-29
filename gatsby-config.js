@@ -8,14 +8,6 @@ module.exports = {
       {
         title: "Home",
         url: "/"
-      },
-      {
-        title: "Portfolio",
-        url: "/portfolio"
-      },
-      {
-        title: "About",
-        url: "/about"
       }
     ],
     social: [
@@ -39,44 +31,6 @@ module.exports = {
   pathPrefix: "/",
   plugins: [
     "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/content/portfolio`,
-        name: "portfolio"
-      }
-    },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        plugins: [
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 590,
-              quality: 90,
-              linkImagesToOriginal: true
-            }
-          },
-          {
-            resolve: "gatsby-remark-responsive-iframe",
-            options: {
-              wrapperStyle: "margin-bottom: 1.0725rem"
-            }
-          },
-          "gatsby-remark-copy-linked-files",
-          "gatsby-remark-smartypants"
-          // {
-          //   resolve: 'gatsby-remark-external-links',
-          //   options: {
-          //     target: '_blank',
-          //     rel: 'nofollow noopener noreferrer',
-          //   }
-          // }
-        ]
-      }
-    },
-
     {
       resolve: "gatsby-plugin-manifest",
       options: {
